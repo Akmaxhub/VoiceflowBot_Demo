@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="E:\medx\VoiceflowBot_Demo\styles.css">
+  </head>
+  <body>
+    <h1>AutoAssistant By MedX</h1> <!-- Added heading -->
+
+    <label for="name">Username:</label>
+    <input id="name" name="name" type="text" value="MedX User" placeholder="your name here" />
+    <hr />
+    <label for="name">Message:</label>
+    <div>
+      <input id="user-input" name="user-input" type="text" placeholder="Enter your response..." />
+      <button id="send" type="button">Send</button>
+      <button id="voice-input" type="button"><i class="fa fa-microphone"></i> Speak</button> <!-- Added text to the speak button -->
+    </div>
+    <ul id="root"></ul>
+
+    <script defer>
+      const API_KEY = "VF.DM.648b47af34b0c2000708317e.MqSONAvTOBIQQTJN"; // it should look like this: VF.DM.XXXXXXX.XXXXXX... keep this a secret!
+
+      let recognition;
+
+      // Check if browser supports speech recognition
+      if ('webkitSpeechRecognition' in window) {
+        recognition = new webkitSpeechRecognition();
+        recognition.continuous = false;
+        recognition.interimResults = false;
+
+        recognition.onresult = function (event) {
+          const userInput = event.results[0][0].transcript;
+          $("#root").append(`<li> > ${userInput}</li>`);
+          // Call an Interaction Method to advance the conversation based on `userInput`.
+          interact({ type: 'text', payload: userInput });
+        };
+
+        // Start listening for user input
+        function startListening() {
+          recognition.start();
+        }
+
+        // Click handler - This advances the conversation session
+        async function handleSend() {
+          const userInput = $("#user-input").val();
+          $("#root").append(`<li> > ${userInput}</li>`);
+          // clear the input field
+          $("#user-input").val('');
+
+          // Call an Interaction Method to advance the conversation based on `userInput`.
+          interact({ type: 'text', payload: userInput });
+        }
+
+        // Register the click handler on the send button
+        $("#send").on("click", handleSend);
+
+        // Register the click handler on the voice input button
+        $("#voice-input").on("click", startListening);
+      } else {
+        alert('Speech recognition not supported in this browser. Please use a compatible browser for voice chat functionality.');
+      }
+
+      const interact = (request) =>
+        // call the voiceflow api with the user's name & request, get back a response
+        fetch(`https://general-runtime.voiceflow.com/state/user/${encodeURI($("#name").val())}/interact`, {
+          method: 'POST',
+          headers: { Authorization: API_KEY, 'Content-Type': 'application/json' },
+          body: JSON.stringify({ request }),
+        })
+          .then((res) => res.json())
+          .then((trace) => {
+            console.log("API RESPONSE BODY:", trace);
+            trace.forEach((trace) => {
+              if (trace.type === 'speak' || trace.type === 'text') {
+                const message = trace.payload.message;
+                $("#root").append(`<li>${message}</li>`);
+                // Speak the message
+                speakText(message).then(() => {
+                  // Prompt the next question after speaking
+                  if (trace.type === 'text') {
+                    const nextQuestion = trace.payload.message;
+                    // Call an Interaction Method to advance the conversation
+                    interact({ type: 'text', payload: nextQuestion });
+                  }
+                });
+              } else if (trace.type === 'end') {
+                $("#root").append(`<li><b>The End!</b></li>`);
+              }
+            });
+          });
+
+      // Call an Interaction Method to start the conversation
+      interact({ type: 'launch' });
+
+      // Function to speak the given text
+      function speakText(text) {
+        return new Promise((resolve, reject) => {
+          const utterance = new SpeechSynthesisUtterance(text);
+          utterance.onend = resolve;
+          utterance.onerror = reject;
+          speechSynthesis.speak(utterance);
+        });
+      }
+    </script>
+  </body>
+</html>
