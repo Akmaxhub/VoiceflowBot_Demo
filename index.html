@@ -1,26 +1,48 @@
-
 <!DOCTYPE html>
 <html>
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="E:\medx\VoiceflowBot_Demo\styles.css">
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <h1>AutoAssistant By MedX</h1> <!-- Added heading -->
+    <div id="container">
+      <div id="image-container">
+        <img src="https://drive.google.com/uc?export=view&id=1BxvqND0MeF8Z-dPpYBvKuV-SQdx6fBrF" alt="AutoAssistant Image">
+      </div>
 
-    <label for="name">Username:</label>
-    <input id="name" name="name" type="text" value="MedX User" placeholder="your name here" />
-    <hr />
-    <label for="name">Message:</label>
-    <div>
-      <input id="user-input" name="user-input" type="text" placeholder="Enter your response..." />
-      <button id="send" type="button">Send</button>
-      <button id="voice-input" type="button"><i class="fa fa-microphone"></i> Speak</button> <!-- Added text to the speak button -->
+      <div id="input-container">
+        <div id="name-date-container">
+          <div id="name-container">
+            <label for="name">Your Name:</label>
+            <input id="name" name="name" type="text" value="MedX User" placeholder="your name here" />
+          </div>
+          <div id="date-container">
+            <span id="date-label">Date: </span>
+            <span id="current-date"></span>
+          </div>
+        </div>
+      </div>
+
+      <div id="conversation-container">
+        <div id="conversation-box">
+          <ul id="root"></ul>
+        </div>
+      </div>
+
+      <div id="message-container">
+        <label for="name">Message:</label>
+        <div id="message-input-container">
+          <input id="user-input" name="user-input" type="text" placeholder="Enter your response..." />
+          <button id="send" type="button">Send</button>
+          <button id="voice-input" type="button"><i class="fa fa-microphone"></i> Speak</button>
+        </div>
+      </div>
     </div>
+
     <ul id="root"></ul>
 
     <script defer>
-      const API_KEY = "VF.DM.648b47af34b0c2000708317e.MqSONAvTOBIQQTJN"; // it should look like this: VF.DM.XXXXXXX.XXXXXX... keep this a secret!
+      const API_KEY = "VF.DM.648c97994eb8a700073a3fa9.Nrhwtr0L4cS9MaT3"; // it should look like this: VF.DM.XXXXXXX.XXXXXX... keep this a secret!
 
       let recognition;
 
