@@ -3,18 +3,19 @@
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   </head>
   <body>
     <div id="container">
       <div id="image-container">
-        <img src="https://drive.google.com/uc?export=view&id=1BxvqND0MeF8Z-dPpYBvKuV-SQdx6fBrF" alt="AutoAssistant Image">
+        <img src="https://drive.google.com/uc?export=view&id=1BxvqND0MeF8Z-dPpYBvKuV-SQdx6fBrF" alt="AutoAssistant Image" style="width: 300px; height: auto;">
       </div>
 
       <div id="input-container">
         <div id="name-date-container">
           <div id="name-container">
             <label for="name">Your Name:</label>
-            <input id="name" name="name" type="text" value="MedX User" placeholder="your name here" />
+            <input id="name" name="name" type="text" value="MedX User" placeholder="Your name here" />
           </div>
           <div id="date-container">
             <span id="date-label">Date: </span>
@@ -33,8 +34,8 @@
         <label for="name">Message:</label>
         <div id="message-input-container">
           <input id="user-input" name="user-input" type="text" placeholder="Enter your response..." />
-          <button id="send" type="button">Send</button>
-          <button id="voice-input" type="button"><i class="fa fa-microphone"></i> Speak</button>
+          <button id="send" type="button"><i class="fas fa-paper-plane"></i></button>
+          <button id="voice-input" type="button"><i class="fas fa-microphone"></i></button>
         </div>
       </div>
     </div>
@@ -77,6 +78,13 @@
 
         // Register the click handler on the send button
         $("#send").on("click", handleSend);
+
+        // Register the keyup event listener on the input field
+        $("#user-input").on("keyup", function (event) {
+          if (event.key === "Enter") {
+            handleSend();
+          }
+        });
 
         // Register the click handler on the voice input button
         $("#voice-input").on("click", startListening);

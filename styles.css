@@ -1,7 +1,8 @@
 body {
   font-family: Arial, sans-serif;
   margin: 0;
-  background-color: #e0e0e0;
+  background-color: transparent;
+  background-image: none
 }
 
 #container {
@@ -10,7 +11,20 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: #f5f5f5;
+  background-color: transparent;
+  background-image: none
+}
+
+#conversation-container {
+  width: 900px;
+  height: 300px;
+  overflow-y: auto;
+  border: 2px solid black;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: transparent;
+  background-image: none;
 }
 
 h1 {
@@ -39,13 +53,6 @@ input[type="text"] {
   padding: 10px;
   list-style-type: none;
   margin: 0;
-  transform-style: preserve-3d;
-}
-
-.buttons {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 10px;
 }
 
 button {
@@ -59,21 +66,17 @@ button {
 }
 
 img {
-  max-width: 250px;
+  max-width: 500px;
   height: auto;
-  border: 1px solid black;
-  border-radius: 5px;
 }
 
 #image-container {
-  margin-bottom: 20px;
-  transform-style: preserve-3d;
+  margin-bottom: 40px;
 }
 
 #input-container {
   margin-bottom: 20px;
   text-align: center;
-  transform-style: preserve-3d;
 }
 
 #name-date-container {
@@ -81,34 +84,19 @@ img {
   justify-content: center;
   align-items: center;
   margin-bottom: 10px;
-  transform-style: preserve-3d;
 }
 
 #name-container {
   margin-right: 20px;
-  transform-style: preserve-3d;
 }
 
 #date-container {
   display: flex;
   align-items: center;
-  transform-style: preserve-3d;
 }
 
 #date-label {
   margin-right: 5px;
-  transform-style: preserve-3d;
-}
-
-#conversation-container {
-  width: 900px;
-  height: 300px;
-  overflow-y: auto;
-  border: 2px solid black;
-  margin-bottom: 20px;
-  border-radius: 10px;
-  padding: 10px;
-  transform-style: preserve-3d;
 }
 
 #conversation-box {
@@ -117,24 +105,17 @@ img {
   flex-direction: column;
   align-items: flex-start;
   padding: 10px;
-  transform-style: preserve-3d;
+  background-color: #f7f2e1e5;
 }
 
 #message-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  transform-style: preserve-3d;
 }
 
 #message-container label {
   margin-right: 10px;
-}
-
-#message-input-container {
-  display: flex;
-  align-items: center;
-  transform-style: preserve-3d;
 }
 
 #message-input-container input[type="text"] {
@@ -146,20 +127,18 @@ img {
   padding: 10px;
   margin-bottom: 5px;
   border-radius: 10px;
-  transform-style: preserve-3d;
   font-size: 16px;
   text-align: left;
 }
 
 #conversation-box li:nth-child(odd) {
   align-self: flex-end;
-  background-color: #d9eaf9;
+  background-color: #cbdef78c;
   text-align: right;
 }
 
 #current-date {
   font-weight: bold;
-  transform-style: preserve-3d;
 }
 
 #name-container,
