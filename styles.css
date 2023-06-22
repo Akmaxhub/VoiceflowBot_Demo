@@ -1,7 +1,7 @@
 /* styles.css */
 
 body {
-  font-family: Questrail, Questrail;
+  font-family: Montserrat, sans-serif;
   margin: 0;
   padding: 20px;
   background-color: transparent;
@@ -85,6 +85,12 @@ body {
 #name-container {
   margin-right: 40px;
 
+}
+
+#name {
+  border: 2px solid #007bff;
+  border-radius: 10px;
+  padding: 5px;
 }
 
 #date-container {
