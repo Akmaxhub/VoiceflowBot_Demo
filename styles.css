@@ -1,5 +1,7 @@
+/* styles.css */
+
 body {
-  font-family: Questrail, sans-serif;
+  font-family: Questrail, Questrail;
   margin: 0;
   padding: 20px;
   background-color: transparent;
@@ -81,18 +83,21 @@ body {
 }
 
 #name-container {
-  margin-right: 10px;
+  margin-right: 40px;
+
 }
 
 #date-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: flex-end;
+  margin-top: 5px;
 }
 
 #date-label {
   font-weight: bold;
   margin-bottom: 5px;
+  margin-right: 5px;
 }
 
 #current-date {
@@ -101,7 +106,7 @@ body {
 
 #conversation-container {
   height: 300px;
-  width:700px;
+  width: 700px;
   overflow-y: scroll;
   border: 2px solid #020d1a;
   border-radius: 10px;
@@ -118,15 +123,20 @@ body {
   margin-bottom: 10px;
   padding: 10px;
   border-radius: 5px;
+  display: flex;
 }
 
 .question {
   background-color: #007bff;
   color: #fff;
+  align-self: flex-start;
+  margin-right: auto;
 }
 
 .response {
   background-color: #e5e5ea;
+  align-self: flex-end;
+  margin-left: auto;
 }
 
 #message-container {

@@ -38,9 +38,7 @@
 
           <div id="conversation-container">
             <div id="conversation-box">
-              <ul id="root">
- 
-              </ul>
+              <ul id="root"></ul>
             </div>
           </div>
 
@@ -57,7 +55,7 @@
     </div>
 
     <script defer>
-      const API_KEY = "VF.DM.648c97994eb8a700073a3fa9.Nrhwtr0L4cS9MaT3"; // it should look like this: VF.DM.XXXXXXX.XXXXXX... keep this a secret!
+      const API_KEY = "VF.DM.64945f52fed9d90006faea0b.8mgmdYCkas1t1yTo"; // it should look like this: VF.DM.XXXXXXX.XXXXXX... keep this a secret!
 
       let recognition;
 
@@ -142,6 +140,12 @@
       function speakText(text) {
         return new Promise((resolve, reject) => {
           const utterance = new SpeechSynthesisUtterance(text);
+          utterance.voiceURI = 'Google US English';
+         // utterance.voice = speechSynthesis.getVoices().find(voice => voice.name === 'Microsoft Zira Desktop - English (United States)');
+          utterance.lang = 'en-US';
+          utterance.pitch = 1.25;
+          utterance.rate = 0.75;
+          utterance.volume = 1.0;
           utterance.onend = resolve;
           utterance.onerror = reject;
           speechSynthesis.speak(utterance);
