@@ -264,3 +264,29 @@ body {
 #pre-visit-survey {
   text-align: center;
 }
+
+#appointment-content-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#questionaire label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+#questionaire input[type="text"] {
+  display: block;
+  margin-bottom: 20px;
+  width: 200%;
+}
+
+#book-appointment-heading {
+  font-size: 28px;
+}
+
+#appointment-heading {
+  text-align: center;
+  margin-top: 0;
+}

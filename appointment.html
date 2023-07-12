@@ -15,46 +15,44 @@
           <div id="panel-links">
             <a href="#" class="panel-link" id="pre-visit-form">Pre-Visit Form</a>
             <br>
-            <a href="#" class="panel-link" id="book-appointment">Book Appointment</a>
+            <a href="index.html" class="panel-link" id="book-appointment">Pre-Visit Survey</a>
+            <br>
+            <a href="https://copper-scarab-gown.cyclic.app/" class="panel-link" id="SOAP Note">SOAP Note</a>
           </div>
         </div>
       </div>
 
       <div id="right-panel">
-        <div id="right-panel-content">
-          <h1 id="pre-visit-survey">Appointment Booking</h1>
-          <div id="appointment-form">
-            <h2>Book an Appointment</h2>
-            <form>
-              <div>
-                <label for="name">Your Name:</label>
-                <input id="name" name="name" type="text" placeholder="Your name here">
-              </div>
-              <div>
-                <label for="email">Email:</label>
-                <input id="email" name="email" type="text" placeholder="Your email address">
-              </div>
-              <div>
-                <label for="date">Preferred Date:</label>
-                <input id="date" name="date" type="text" placeholder="Preferred date">
-              </div>
-              <div>
-                <label for="time">Preferred Time:</label>
-                <input id="time" name="time" type="text" placeholder="Preferred time">
-              </div>
-              <div>
-                <label for="comments">Comments:</label>
-                <textarea id="comments" name="comments" placeholder="Any additional comments"></textarea>
-              </div>
-              <button type="submit">Book Appointment</button>
-            </form>
+        <div id="appointment-content-right">     
+          <div id="appointment-info">
+            <div id="appointment-heading">
+              <h2 id="book-appointment-heading">Book Appointment</h2>
+            </div>
+            <div id="questionaire">
+              <label for="mcmaster-team">McMaster Varsity Team?</label>
+              <input id="mcmaster-team" type="text" placeholder="Add your answer here" style="background-color: lightgrey;">
+              <br> <!-- Add line break here -->
+            
+              <label for="injury-date">What is the date of injury?</label>
+              <input id="injury-date" type="text" placeholder="Add your answer here" style="background-color: lightgrey;">
+              <br> <!-- Add line break here -->
+            
+              <label for="injured-body-part">What body part is injured?</label>
+              <input id="injured-body-part" type="text" placeholder="Add your answer here" style="background-color: lightgrey;">
+              <br> <!-- Add line break here -->
+            
+              <label for="seen-doctor">Have you seen the team doctor for this injury?</label>
+              <input id="seen-doctor" type="text" placeholder="Add your answer here" style="background-color: lightgrey;">
+              <br> <!-- Add line break here -->
+            
+              <label for="insurance-form">Have you filled out your insurance form?</label>
+              <input id="insurance-form" type="text" placeholder="Add your answer here" style="background-color: lightgrey;">
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <script defer>
-      // Your JavaScript code goes here
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
