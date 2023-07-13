@@ -16,7 +16,7 @@ body {
 #left-panel {
   width: 300px;
   padding: 20px;
-  background-color: #fdfafa;
+  background-color: #ffffff;
   border: 2px solid #007bff;
   border-radius: 10px;
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
@@ -235,7 +235,7 @@ body {
 
 #left-panel {
   flex: 1;
-  background-color: #f2f2f2;
+  background-color: #ffffff;
   padding: 20px;
 }
 
